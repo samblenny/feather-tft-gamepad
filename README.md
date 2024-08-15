@@ -1,6 +1,6 @@
 <!-- SPDX-License-Identifier: MIT -->
 <!-- SPDX-FileCopyrightText: Copyright 2024 Sam Blenny -->
-# USB Gamepad
+# Feather TFT Gamepad
 
 This demonstrates a USB gamepad button press visualizer using using an Adafruit
 USB Host FeatherWing and ESP32-S3 TFT Feather.
