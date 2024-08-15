@@ -5,6 +5,7 @@
 This demonstrates a USB gamepad button press visualizer using using an Adafruit
 USB Host FeatherWing and ESP32-S3 TFT Feather.
 
+![zoomed in view of spritesheet with parts of a gamepad](spritesheet-8x-zoom.png)
 
 ## Hardware
 
