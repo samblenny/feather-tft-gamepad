@@ -9,23 +9,34 @@
 # - 8BitDo SN30 Pro USB gamepad
 #
 # Pinouts:
-# | TFT feather | USB Host |
-# | ----------- | -------- |
-# |  SCK        |  SCK     |
-# |  MOSI       |  MOSI    |
-# |  MISO       |  MISO    |
-# |  D9         |  IRQ     |
-# |  D10        |  CS      |
+# | TFT feather | USB Host | ST7789 TFT |
+# | ----------- | -------- | ---------- |
+# |  SCK        |  SCK     |            |
+# |  MOSI       |  MOSI    |            |
+# |  MISO       |  MISO    |            |
+# |  D9         |  IRQ     |            |
+# |  D10        |  CS      |            |
+# |  TFT_CS     |          |  CS        |
+# |  TFT_DC     |          |  DC        |
 #
-from board import D9, D10, SPI
+# Related Documentation:
+# - https://learn.adafruit.com/adafruit-esp32-s3-tft-feather
+# - https://learn.adafruit.com/adafruit-1-14-240x135-color-tft-breakout
+# - https://learn.adafruit.com/adafruit-usb-host-featherwing-with-max3421e
+#
+from board import D9, D10, SPI, TFT_CS, TFT_DC
 from digitalio import DigitalInOut, Direction
-from displayio import release_displays
+from displayio import (Bitmap, Group, OnDiskBitmap, Palette, TileGrid,
+    release_displays)
+from fourwire import FourWire
 import gc
 from max3421e import Max3421E
 from struct import unpack
 from sys import stdout
 from time import sleep
 from usb import core
+
+from adafruit_st7789 import ST7789
 
 
 # Gamepad button bitmask constants
@@ -136,12 +147,24 @@ def find_and_connect():
             sleep(0.1)
 
 def main():
-    release_displays()  # TFT console slows down gamepad polling
+    release_displays()
     gc.collect()
+    spi = SPI()
+
+    # Initialize display
+    bus = FourWire(spi, command=TFT_DC, chip_select=TFT_CS)
+    display = ST7789(bus, rotation=270, width=240, height=135, rowstart=40,
+        colstart=53, auto_refresh=False)
+    gc.collect()
+    bmp = OnDiskBitmap(open("sprites.bmp", "rb"))
+    tiles = TileGrid(bmp, pixel_shader=bmp.pixel_shader)
+    grp = Group(scale=3)
+    grp.append(tiles)
+    display.root_group = grp
+    display.refresh()
 
     # Initializing MAX3421E USB host chip
     print("Initializing USB host port...")
-    spi = SPI()
     usbHost = Max3421E(spi, chip_select=D10, irq=D9)
     sleep(0.1)
 
