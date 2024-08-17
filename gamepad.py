@@ -45,11 +45,12 @@ class XInputGamepad:
         self.device = None
 
     def find_and_configure(self, retries=25):
-        # Connect to a USB wired Xbox 360 style gamepad (vid:pid=045e:028e).
+        # Connect to a USB wired Xbox 360 style gamepad (vid:pid=045e:028e)
         #
-        # retries: max number of attempts to find device (100ms intervals)
+        # retries: max number of attempts to find device (100ms retry interval)
+        #
         # Returns: True = success, False = device not found or config failed
-        # Exceptions: may raise usb.core.USBError
+        # Exceptions: may raise usb.core.USBError or usb.core.USBTimeoutError
         #
         for _ in range(retries):
             device = core.find(idVendor=0x045e, idProduct=0x028e)
@@ -64,8 +65,10 @@ class XInputGamepad:
         return False
 
     def _configure(self, device):
-        # Prepare USB gamepad for use (set configuration, drain buffer, etc).
-        # Exceptions: may raise usb.core.USBError
+        # Prepare USB gamepad for use (set configuration, drain buffer, etc)
+        #
+        # Exceptions: may raise usb.core.USBError or usb.core.USBTimeoutError
+        #
         interface = 0
         timeout_ms = 5
         try:
@@ -100,9 +103,10 @@ class XInputGamepad:
         # Poll gamepad for button changes (ignore sticks and triggers)
         #
         # Returns a tuple of (valid, changed, buttons):
-        #  connected: True if gamepad is still connected, else False
-        #  changed: True if buttons changed since last call, else False
-        #  buttons: Uint16 containing bitfield of individual button values
+        #   connected: True if gamepad is still connected, else False
+        #   changed: True if buttons changed since last call, else False
+        #   buttons: Uint16 containing bitfield of individual button values
+        # Exceptions: may raise usb.core.USBError or usb.core.USBTimeoutError
         #
         # Expected endpoint 0x81 report format:
         #  bytes 0,1:    prefix that doesn't change      [ignored]
