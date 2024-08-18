@@ -319,8 +319,8 @@ each. The sprites are 8 pixels wide by 8 pixels high. The bottom right
 portion shows the same spritesheet overlaid with numbers that match the
 numbering system used by `displayio.TileGrid`.
 
-This is how I taught TileGrid to make a full gamepad image for me by assembling
-a grid of sprites:
+This is how I taught TileGrid to make a full gamepad image (5 rows tall by 10
+columns wide) by assembling a grid of sprites:
 
 ```
 # load spritesheet and palette
