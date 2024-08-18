@@ -135,7 +135,8 @@ def main():
                         update_GUI(scene, prev, buttons)
                         display.refresh()
                         prev = buttons
-                    sleep(0.001)
+                    sleep(0.002)
+                    gc.collect()
                 # If loop stopped, gamepad connection was lost
                 print("Gamepad disconnected")
                 print("Looking for USB gamepad...")
