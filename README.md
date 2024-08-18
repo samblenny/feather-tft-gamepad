@@ -256,9 +256,10 @@ possible to work with bitfields efficiently:
    decode the bitfield using the XOR (`^` in python) and AND (`&` in Python)
    bitwise digital logic operators.
 
-   If you want to understand why, read about digital logic. For the how part,
-   you can use code like this to identify which bits changed and then do some
-   appropriate action based on the current value:
+   If you want to understand why this works, you could try reading about
+   digital logic and experimenting in a Python REPL. For the how part,
+   you can use code like this to identify which bits changed and then do
+   some appropriate action based on the current value:
 
     ```
     def update_GUI(scene, prev, buttons):
