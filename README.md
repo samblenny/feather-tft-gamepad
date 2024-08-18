@@ -223,7 +223,7 @@ wanted to. But, short version, understanding a few simple techniques makes it
 possible to work with bitfields efficiently:
 
 1. What is a bitfield? Suppose you have 8 buttons that can each have a value
-   of pressed (0) or not pressed (1). You could store each value as its own
+   of pressed (1) or not pressed (0). You could store each value as its own
    integer, but that would use many more bytes than necessary. To save
    space, you could instead treat one 8-bit integer as a bitfield, assigning
    each of its eight bits to represent a different button.
