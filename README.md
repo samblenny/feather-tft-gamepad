@@ -3,7 +3,8 @@
 # Feather TFT Gamepad
 
 This demonstrates a visual USB gamepad tester using using an Adafruit
-USB Host FeatherWing, an ESP32-S3 TFT Feather, and sprites created in Krita.
+MAX3421E USB Host Featherwing, an ESP32-S3 TFT Feather, and sprites created
+in Krita.
 
 ![Feather TFT dev board with USB gamepad and a sprite-based gamepad tester display](feather-tft-gamepad.jpeg)
 <br>*Feather TFT dev board with USB gamepad and a sprite-based gamepad tester
