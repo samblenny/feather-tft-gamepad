@@ -5,11 +5,13 @@
 This demonstrates a USB gamepad button press visualizer using using an Adafruit
 USB Host FeatherWing and ESP32-S3 TFT Feather.
 
-![zoomed in view of spritesheet with parts of a gamepad](spritesheet-8x-zoom.png)
-<br>*8x zoomed spritesheet with 8px/16px grid divisions*
+![Feather TFT dev board with USB gamepad and a sprite-based gamepad tester display](feather-tft-gamepad.jpeg)
+<br>*Feather TFT dev board with USB gamepad and a sprite-based gamepad tester
+display*
 
-![screenshot of making a gamepad spritesheet in Krita](tilegrid-in-krita.png)
-<br>*editing the tilegrid and spritesheet in Krita*
+![8x zoomed view of gamepad tester spritesheet with and without sprite numbers](8x-combo-spritesheet.png)
+<br>*8x zoomed view of gamepad tester spritesheet with and without sprite
+numbers*
 
 
 ## Hardware
