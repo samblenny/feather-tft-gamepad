@@ -270,7 +270,7 @@ possible to work with bitfields efficiently:
         X = 0x8000
 
         # Use XOR (^) to identify the specific bits that changed
-        #   (try doing `"0b{:03b}".format(0b111 ^ 0b101)` in a Python REPL)
+        #   (try `"0b{:03b}".format(0b111 ^ 0b101)` in a Python REPL)
         diff = prev ^ buttons
 
         # Use AND (&) to calculate a boolean value that is True when a
