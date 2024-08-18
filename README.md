@@ -165,6 +165,15 @@ section of the
 learn guide.
 
 
+## Converting PNG Spritesheet to BMP
+
+After exporting to PNG from Krita, I converted my spritesheet to BMP like this:
+
+```
+gm convert gamepad_7x4_8px_sprites.png BMP3:sprites.bmp
+```
+
+
 ## Running the Gamepad Demo Code
 
 **TODO**

@@ -53,13 +53,13 @@ def update_GUI(scene, prev, buttons):
     #
     diff = prev ^  buttons
     if diff & A:
-        scene[8, 2] = 17 if (buttons & A) else 19
+        scene[8, 2] = 15 if (buttons & A) else 17
     if diff & B:
-        scene[7, 3] = 17 if (buttons & B) else 19
+        scene[7, 3] = 15 if (buttons & B) else 17
     if diff & X:
-        scene[7, 1] = 17 if (buttons & X) else 19
+        scene[7, 1] = 15 if (buttons & X) else 17
     if diff & Y:
-        scene[6, 2] = 17 if (buttons & Y) else 19
+        scene[6, 2] = 15 if (buttons & Y) else 17
     if diff & L:
         scene[1, 0] = 1 if (buttons & L) else 5
     if diff & R:
@@ -97,9 +97,9 @@ def main():
         tile_width=8, tile_height=8, default_tile=9)
     tilemap = (
         (0, 5, 2, 3, 3, 3, 3, 4, 5, 6),            # . L . . . . . . R .
-        (7, 9, 12, 9, 9, 9, 9, 19, 9, 13),         # . . dU. . . . X . .
-        (7, 18, 9, 20, 9, 9, 19, 9, 19, 13),      # . dL. dR. . Y . A .
-        (7, 9, 26, 9, 24, 25, 9, 19, 9, 13),       # . . dD. SeSt. B . .
+        (7, 9, 12, 9, 9, 9, 9, 17, 9, 13),         # . . dU. . . . X . .
+        (7, 18, 19, 20, 9, 9, 17, 9, 17, 13),      # . dL. dR. . Y . A .
+        (7, 9, 26, 9, 24, 25, 9, 17, 9, 13),       # . . dD. SeSt. B . .
         (21, 23, 23, 23, 23, 23, 23, 23, 23, 27),  # . . . . . . . . . .
     )
     for (y, row) in enumerate(tilemap):
