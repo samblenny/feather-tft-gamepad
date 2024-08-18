@@ -277,8 +277,8 @@ possible to work with bitfields efficiently:
 
         # Use AND (&) to calculate a boolean value that is True when a
         # specific button has changed (`diff & A`, `diff & B`, etc), or
-        # when a button is currently pressed (`buttons & A`, `buttons &
-        # B`, etc)
+        # when a button is currently pressed (`buttons & A`,
+        # `buttons & B`, etc)
         if diff & A:
             scene[8, 2] = 15 if (buttons & A) else 17
         if diff & B:
