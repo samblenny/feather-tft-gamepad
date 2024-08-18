@@ -262,8 +262,9 @@ possible to work with bitfields efficiently:
 
     ```
     def update_GUI(scene, prev, buttons):
-        # These are bitmask constants mapping buttons to their corresponding
-        # bit (each of these is a 16-bit integer where only 1 bit is set)
+        # These are bitmask constants mapping buttons to their
+        # corresponding bit (each of these is a 16-bit integer where
+        # only 1 bit is set)
         B = 0x1000
         A = 0x2000
         Y = 0x4000
@@ -274,8 +275,9 @@ possible to work with bitfields efficiently:
         diff = prev ^ buttons
 
         # Use AND (&) to calculate a boolean value that is True when a
-        # specific button has changed (`diff & A`, `diff & B`, etc), or when a
-        # button is currently pressed (`buttons & A`, `buttons & B`, etc)
+        # specific button has changed (`diff & A`, `diff & B`, etc), or
+        # when a button is currently pressed (`buttons & A`, `buttons &
+        # B`, etc)
         if diff & A:
             scene[8, 2] = 15 if (buttons & A) else 17
         if diff & B:
